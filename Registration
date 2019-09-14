@@ -1,0 +1,202 @@
+package PRoject_Rough;
+
+import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
+
+public class Demo extends JFrame implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
+    public static void main(String[] args) {
+        JFrame frame1=new JFrame();
+        JFrame frame2=new JFrame();
+        JFrame frame3=new JFrame();
+
+        JMenu Home,Subject,Enquiry,Register,Admission,DataRecords;
+        JMenuBar mb=new JMenuBar();
+        Home=new JMenu("Home");
+        Enquiry=new JMenu("Enquiry");
+        Subject=new JMenu("Subject");
+        Subject.add("Java");
+        Subject.add("Spring Boot");
+        Subject.add("Python");
+        Subject.add("JSP");
+        Subject.add("Angular");
+        Register=new JMenu("Register");
+        Register.addMenuListener(new MenuListener() {
+            @Override
+            public void menuSelected(MenuEvent e) {
+
+
+                String[] Gender = {"Male", "Female", "Other"};
+                JTextField name = new JTextField();
+                name.setBounds(220, 100, 200, 30);
+
+                JLabel nameLable = new JLabel("Name");
+                nameLable.setBounds(50, 100, 150, 30);
+                JTextField father = new JTextField();
+                father.setBounds(220, 140, 200, 30);
+
+                JLabel fatherLable = new JLabel("Father's Name");
+                fatherLable.setBounds(50, 140, 150, 30);
+
+                JTextField address = new JTextField();
+                address.setBounds(220, 180, 200, 30);
+
+                JLabel AddressLabel = new JLabel("Address");
+                AddressLabel.setBounds(50, 180, 150, 30);
+
+                JTextField mobile = new JTextField();
+                mobile.setBounds(220, 220, 200, 30);
+
+                JLabel mobileLable = new JLabel("Moblie No");
+                mobileLable.setBounds(50, 220, 150, 30);
+
+                JComboBox genderbox = new JComboBox(Gender);
+                genderbox.setBounds(220, 260, 200, 30);
+
+                JLabel gender = new JLabel("Gender");
+                gender.setBounds(50, 260, 150, 30);
+
+                JButton sub=new JButton("Submit");
+                sub.setBounds(380, 480, 100, 30);
+                sub.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        frame3.add(name);
+                frame3.add(nameLable);
+                frame3.add(father);
+                frame3.add(fatherLable);
+                frame3.add(address);
+                frame3.add(AddressLabel);
+                frame3.add(mobile);
+                frame3.add(mobileLable);
+                frame3.add(gender);
+                frame3.add(genderbox);
+                frame3.add(sub);
+                frame3.setSize(500, 600);
+                frame3.setLayout(null);
+                frame3.setVisible(true);
+                frame2.dispose();
+                    }
+                });
+
+
+                JButton Back=new JButton("Home");
+                Back.setBounds(250, 480, 100, 30);
+                Back.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String cmd=e.getActionCommand();
+                        if(cmd.equals("Home")){
+                            frame2.dispose();
+                        }
+                        frame1.setVisible(true);
+                    }
+                });
+                {
+                    frame2.add(name);
+                    frame2.add(nameLable);
+                    frame2.add(father);
+                    frame2.add(fatherLable);
+                    frame2.add(address);
+                    frame2.add(AddressLabel);
+                    frame2.add(mobile);
+                    frame2.add(mobileLable);
+                    frame2.add(gender);
+                    frame2.add(genderbox);
+                    frame2.add(sub);
+                    frame2.add(Back);
+                    frame2.setSize(500, 600);
+                    frame2.setLayout(null);
+                    frame2.setVisible(true);
+                    frame1.dispose();
+                }
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        });
+        Admission=new JMenu("Admission");
+        Admission.addMenuListener(new MenuListener() {
+            @Override
+            public void menuSelected(MenuEvent e) {
+
+                String[] Gender = {"Male", "Female", "Other"};
+                JTextField name = new JTextField();
+                name.setBounds(220, 100, 200, 30);
+
+                JLabel nameLable = new JLabel("Name");
+                nameLable.setBounds(50, 100, 150, 30);
+                JTextField father = new JTextField();
+                father.setBounds(220, 140, 200, 30);
+
+                JLabel fatherLable = new JLabel("Father's Name");
+                fatherLable.setBounds(50, 140, 150, 30);
+
+                JTextField address = new JTextField();
+                address.setBounds(220, 180, 200, 30);
+
+                JLabel AddressLabel = new JLabel("Address");
+                AddressLabel.setBounds(50, 180, 150, 30);
+
+                JTextField mobile = new JTextField();
+                mobile.setBounds(220, 220, 200, 30);
+
+                JLabel mobileLable = new JLabel("Moblie No");
+                mobileLable.setBounds(50, 220, 150, 30);
+
+                JComboBox genderbox = new JComboBox(Gender);
+                genderbox.setBounds(220, 260, 200, 30);
+
+                JLabel gender = new JLabel("Gender");
+                gender.setBounds(50, 260, 150, 30);
+
+                JButton subm=new JButton("Submit");
+                subm.setBounds(380, 480, 100, 30);             
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        });
+
+        DataRecords=new JMenu("Data Records");
+        DataRecords.add("Import/Export");
+        DataRecords.add("Previous Records");
+        DataRecords.add("Current Records");
+        mb.add(Home);
+        mb.add(Enquiry);
+        mb.add(Register);
+        mb.add(Admission);
+        mb.add(Subject);
+        mb.add(DataRecords);
+        frame1.add(mb);
+        frame1.setJMenuBar(mb);
+        frame1.setSize(500,600);
+        frame1.setLayout(null);
+        frame1.setVisible(true);
+
+
+
+    }
+}
