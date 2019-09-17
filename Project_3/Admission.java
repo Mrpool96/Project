@@ -62,7 +62,7 @@ public class Admission extends JFrame implements ActionListener {
         JComboBox Payment=new JComboBox(PaymentCourse);
         Payment.setBounds(220,340,150,30);
 
-        JLabel pay=new JLabel("Course Duration");
+        JLabel pay=new JLabel("Course Fees");
         pay.setBounds(50,340,150,30);
         
         JLabel courseLabel=new JLabel("Courses");

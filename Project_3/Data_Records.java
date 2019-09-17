@@ -1,3 +1,4 @@
+
 package Project_3;
 
 
@@ -36,8 +37,14 @@ public class Data_Records extends JFrame implements ActionListener {
             }
         });
 
-        JButton Excel=new JButton("Import to Excel");
+        JButton Excel=new JButton("Export to Excel");
         Excel.setBounds(500,650,150,30);
+        Excel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         Record.add(Update);
         Record.add(Delete);
         Record.add(Main);
